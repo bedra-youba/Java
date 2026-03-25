@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.microfinance.views.StatistiquesViewController">
+
+    <ImageView fitWidth="1200" fitHeight="800"
+               preserveRatio="false" opacity="0.35">
+        <image><Image url="@../images/billets.jpeg"/></image>
+    </ImageView>
+
+    <VBox spacing="20" style="-fx-padding: 25;">
+
+        <HBox alignment="CENTER_LEFT" spacing="15">
+            <Button text="⬅  Retour" onAction="#retourDashboard"
+                    style="-fx-background-color: rgba(27,94,32,0.8);
+                           -fx-text-fill: white; -fx-background-radius: 8;
+                           -fx-padding: 8 16; -fx-cursor: hand;"/>
+            <VBox HBox.hgrow="ALWAYS"
+                  style="-fx-background-color: rgba(27,94,32,0.65);
+                         -fx-background-radius: 12; -fx-padding: 15;">
+                <Label text="📊  Statistiques Financières"
+                       style="-fx-text-fill: white; -fx-font-size: 20;
+                              -fx-font-weight: bold;"/>
+                <Label text="Vue globale de l'institution"
+                       style="-fx-text-fill: #C8E6C9; -fx-font-size: 12;"/>
+            </VBox>
+
+        </HBox>
+
+        <HBox spacing="20">
+            <VBox spacing="8" HBox.hgrow="ALWAYS"
+                  style="-fx-background-color: rgba(255,255,255,0.90);
+                         -fx-background-radius: 12; -fx-padding: 25;
+                         -fx-border-color: #2E7D32; -fx-border-width: 0 0 0 5;
+                         -fx-border-radius: 12;">
+                <Label text="💰 Capital Total"
+                       style="-fx-font-size: 13; -fx-text-fill: #555;"/>
+                <Label fx:id="lblCapital" text="0 MRU"
+                       style="-fx-font-size: 28; -fx-font-weight: bold;
+                              -fx-text-fill: #1B5E20;"/>
+                <Label text="Somme de toutes les agences"
+                       style="-fx-font-size: 11; -fx-text-fill: #888;"/>
+            </VBox>
+
+            <VBox spacing="8" HBox.hgrow="ALWAYS"
+                  style="-fx-background-color: rgba(255,255,255,0.90);
+                         -fx-background-radius: 12; -fx-padding: 25;
+                         -fx-border-color: #1565C0; -fx-border-width: 0 0 0 5;
+                         -fx-border-radius: 12;">
+                <Label text="🏦 Total Agences"
+                       style="-fx-font-size: 13; -fx-text-fill: #555;"/>
+                <Label fx:id="lblAgences" text="0"
+                       style="-fx-font-size: 28; -fx-font-weight: bold;
+                              -fx-text-fill: #1565C0;"/>
+                <Label text="Agences enregistrées"
+                       style="-fx-font-size: 11; -fx-text-fill: #888;"/>
+            </VBox>
+
+            <VBox spacing="8" HBox.hgrow="ALWAYS"
+                  style="-fx-background-color: rgba(255,255,255,0.90);
+                         -fx-background-radius: 12; -fx-padding: 25;
+                         -fx-border-color: #E65100; -fx-border-width: 0 0 0 5;
+                         -fx-border-radius: 12;">
+                <Label text="👥 Total Employés"
+                       style="-fx-font-size: 13; -fx-text-fill: #555;"/>
+                <Label fx:id="lblAgents" text="0"
+                       style="-fx-font-size: 28; -fx-font-weight: bold;
+                              -fx-text-fill: #E65100;"/>
+                <Label text="Agents actifs"
+                       style="-fx-font-size: 11; -fx-text-fill: #888;"/>
+            </VBox>
+        </HBox>
+    </VBox>
+</StackPane>

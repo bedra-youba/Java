@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.microfinance.views.BeneficesViewController">
+
+    <ImageView fitWidth="1200" fitHeight="800"
+               preserveRatio="false" opacity="0.35">
+        <image><Image url="@../images/billets.jpeg"/></image>
+    </ImageView>
+
+    <VBox spacing="20" style="-fx-padding: 25;">
+
+        <HBox alignment="CENTER_LEFT" spacing="15">
+            <Button text="⬅  Retour" onAction="#retourDashboard"
+                    style="-fx-background-color: rgba(27,94,32,0.8);
+                           -fx-text-fill: white; -fx-background-radius: 8;
+                           -fx-padding: 8 16; -fx-cursor: hand;"/>
+            <VBox HBox.hgrow="ALWAYS"
+                  style="-fx-background-color: rgba(27,94,32,0.65);
+                         -fx-background-radius: 12; -fx-padding: 15;">
+                <Label text="💰  Bénéfices par Agence"
+                       style="-fx-text-fill: white; -fx-font-size: 20;
+                              -fx-font-weight: bold;"/>
+                <Label text="Consulter les bénéfices réalisés"
+                       style="-fx-text-fill: #C8E6C9; -fx-font-size: 12;"/>
+            </VBox>
+
+        </HBox>
+
+        <VBox spacing="16"
+              style="-fx-background-color: rgba(255,255,255,0.90);
+                     -fx-background-radius: 12; -fx-padding: 25;">
+            <HBox spacing="14" alignment="CENTER_LEFT">
+                <Label text="Sélectionner une agence :"
+                       style="-fx-font-size: 14;"/>
+                <ComboBox fx:id="comboAgences"
+                          promptText="Choisir une agence"
+                          prefWidth="280"
+                          style="-fx-background-radius: 8;"/>
+                <Button text="📊 Voir Bénéfice" onAction="#onVoirBenefice"
+                        style="-fx-background-color: #2E7D32; -fx-text-fill: white;
+                               -fx-background-radius: 8; -fx-padding: 10 22;
+                               -fx-cursor: hand; -fx-font-size: 13;"/>
+            </HBox>
+
+            <VBox alignment="CENTER" prefHeight="200"
+                  style="-fx-background-color: #F1F8E9;
+                         -fx-background-radius: 12; -fx-padding: 30;">
+                <Label fx:id="lblBenefice"
+                       text="Sélectionnez une agence pour voir son bénéfice"
+                       style="-fx-font-size: 20; -fx-text-fill: #555;"/>
+            </VBox>
+        </VBox>
+    </VBox>
+</StackPane>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.microfinance.views.DemandesAchatViewController">
+
+    <ImageView fitWidth="1200" fitHeight="800"
+               preserveRatio="false" opacity="0.35">
+        <image><Image url="@../images/billets.jpeg"/></image>
+    </ImageView>
+
+    <VBox spacing="14" style="-fx-padding: 25;">
+
+        <HBox alignment="CENTER_LEFT" spacing="15">
+            <Button text="⬅  Retour" onAction="#retourDashboard"
+                    style="-fx-background-color: rgba(27,94,32,0.8); -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 8 16; -fx-cursor: hand;"/>
+            <VBox HBox.hgrow="ALWAYS"
+                  style="-fx-background-color: rgba(27,94,32,0.65); -fx-background-radius: 12; -fx-padding: 15;">
+                <Label text="🛒  Demandes d'Achat"
+                       style="-fx-text-fill: white; -fx-font-size: 20; -fx-font-weight: bold;"/>
+                <Label text="Consulter les demandes clients et enregistrer"
+                       style="-fx-text-fill: #A5D6A7; -fx-font-size: 12;"/>
+            </VBox>
+            <ImageView fitWidth="80" fitHeight="53" preserveRatio="true">
+                <image><Image url="@../images/drapeau.jpg"/></image>
+            </ImageView>
+        </HBox>
+
+        <HBox spacing="14" VBox.vgrow="ALWAYS">
+
+            <!-- Section gauche : demandes soumises par les clients -->
+            <VBox spacing="10" HBox.hgrow="ALWAYS"
+                  style="-fx-background-color: rgba(255,255,255,0.90); -fx-background-radius: 12; -fx-padding: 16;">
+                <Label text="📋 Demandes soumises par les clients"
+                       style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #1B5E20;"/>
+                <Label text="Sélectionnez une demande pour l'enregistrer"
+                       style="-fx-font-size: 11; -fx-text-fill: #888;"/>
+                <TableView fx:id="tableDemandesClients" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colIdClient"    text="ID"          prefWidth="45"/>
+                        <TableColumn fx:id="colDateClient"  text="Date"        prefWidth="100"/>
+                        <TableColumn fx:id="colDescClient"  text="Description" prefWidth="180"/>
+                        <TableColumn fx:id="colPrixClient"  text="Prix (MRU)"  prefWidth="90"/>
+                        <TableColumn fx:id="colStatClient"  text="Statut"      prefWidth="100"/>
+                    </columns>
+                </TableView>
+                <Button text="✚ Enregistrer cette demande" onAction="#onEnregistrerDemandeSelectionnee"
+                        style="-fx-background-color: #1B5E20; -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 9 16; -fx-cursor: hand; -fx-pref-width: 250;"/>
+                <Label fx:id="lblMessageGauche" style="-fx-font-size: 12;"/>
+            </VBox>
+
+            <!-- Section droite : demandes enregistrées par l'agent -->
+            <VBox spacing="10" HBox.hgrow="ALWAYS"
+                  style="-fx-background-color: rgba(255,255,255,0.90); -fx-background-radius: 12; -fx-padding: 16;">
+                <Label text="✅ Demandes enregistrées par l'agent"
+                       style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #1B5E20;"/>
+                <Label text="Demandes que vous avez traitées"
+                       style="-fx-font-size: 11; -fx-text-fill: #888;"/>
+                <TableView fx:id="tableDemandesAgent" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colIdDemande" text="N° Demande" prefWidth="100"/>
+                        <TableColumn fx:id="colDateAgent"  text="Date"        prefWidth="100"/>
+                        <TableColumn fx:id="colDescAgent"  text="Description" prefWidth="180"/>
+                        <TableColumn fx:id="colPrixAgent"  text="Prix (MRU)"  prefWidth="90"/>
+                        <TableColumn fx:id="colStatAgent"  text="Statut"      prefWidth="100"/>
+                    </columns>
+                </TableView>
+                <Label fx:id="lblMessageDroit" style="-fx-font-size: 12;"/>
+            </VBox>
+
+        </HBox>
+    </VBox>
+</StackPane>
