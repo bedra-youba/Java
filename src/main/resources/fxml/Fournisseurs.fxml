@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.microfinance.views.FournisseursViewController">
+
+    <ImageView fitWidth="1200" fitHeight="800"
+               preserveRatio="false" opacity="0.35">
+        <image><Image url="@../images/billets.jpeg"/></image>
+    </ImageView>
+
+    <VBox spacing="16" style="-fx-padding: 25;">
+
+        <HBox alignment="CENTER_LEFT" spacing="15">
+            <Button text="⬅  Retour" onAction="#retourDashboard"
+                    style="-fx-background-color: rgba(27,94,32,0.8);
+                           -fx-text-fill: white; -fx-background-radius: 8;
+                           -fx-padding: 8 16; -fx-cursor: hand;"/>
+            <VBox HBox.hgrow="ALWAYS"
+                  style="-fx-background-color: rgba(27,94,32,0.65);
+                         -fx-background-radius: 12; -fx-padding: 15;">
+                <Label text="🏭  Fournisseurs"
+                       style="-fx-text-fill: white; -fx-font-size: 20;
+                              -fx-font-weight: bold;"/>
+                <Label text="Consulter la liste des fournisseurs"
+                       style="-fx-text-fill: #A5D6A7; -fx-font-size: 12;"/>
+            </VBox>
+            <ImageView fitWidth="80" fitHeight="53" preserveRatio="true">
+                <image><Image url="@../images/drapeau.jpg"/></image>
+            </ImageView>
+        </HBox>
+
+        <VBox VBox.vgrow="ALWAYS"
+              style="-fx-background-color: rgba(255,255,255,0.90);
+                     -fx-background-radius: 12; -fx-padding: 16;">
+            <Label text="Liste des Fournisseurs"
+                   style="-fx-font-size: 14; -fx-font-weight: bold;
+                          -fx-text-fill: #1B5E20; -fx-padding: 0 0 10 0;"/>
+            <TableView fx:id="tableFournisseurs" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colIdF"      text="ID"         prefWidth="55"/>
+                    <TableColumn fx:id="colNomF"     text="Entreprise" prefWidth="200"/>
+                    <TableColumn fx:id="colTelF"     text="Téléphone"  prefWidth="140"/>
+                    <TableColumn fx:id="colEmailF"   text="Email"      prefWidth="180"/>
+                    <TableColumn fx:id="colAdresseF" text="Adresse"    prefWidth="200"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </VBox>
+</StackPane>

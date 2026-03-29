@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.microfinance.views.CompteEpargneViewController">
+
+    <ImageView fitWidth="1200" fitHeight="800"
+               preserveRatio="false" opacity="0.35">
+        <image><Image url="@../images/billets.jpeg"/></image>
+    </ImageView>
+
+    <VBox spacing="16" style="-fx-padding: 25;">
+
+        <HBox alignment="CENTER_LEFT" spacing="15">
+            <Button text="⬅  Retour" onAction="#retourDashboard"
+                    style="-fx-background-color: rgba(27,94,32,0.8);
+                           -fx-text-fill: white; -fx-background-radius: 8;
+                           -fx-padding: 8 16; -fx-cursor: hand;"/>
+            <VBox HBox.hgrow="ALWAYS"
+                  style="-fx-background-color: rgba(27,94,32,0.65);
+                         -fx-background-radius: 12; -fx-padding: 15;">
+                <Label text="💳  Comptes Épargne"
+                       style="-fx-text-fill: white; -fx-font-size: 20;
+                              -fx-font-weight: bold;"/>
+                <Label text="Créer un compte, enregistrer dépôt ou retrait"
+                       style="-fx-text-fill: #A5D6A7; -fx-font-size: 12;"/>
+            </VBox>
+            <ImageView fitWidth="80" fitHeight="53" preserveRatio="true">
+                <image><Image url="@../images/drapeau.jpg"/></image>
+            </ImageView>
+        </HBox>
+
+        <HBox spacing="16">
+            <!-- Créer compte -->
+            <VBox spacing="12" HBox.hgrow="ALWAYS"
+                  style="-fx-background-color: rgba(255,255,255,0.90);
+                         -fx-background-radius: 12; -fx-padding: 20;">
+                <Label text="Créer un Compte Épargne"
+                       style="-fx-font-size: 14; -fx-font-weight: bold;
+                              -fx-text-fill: #1B5E20;"/>
+                <TextField fx:id="txtClientIdCompte"
+                           promptText="ID du client"
+                           style="-fx-background-radius: 8; -fx-padding: 9;"/>
+                <TextField fx:id="txtSoldeInitial"
+                           promptText="Solde initial (MRU)"
+                           style="-fx-background-radius: 8; -fx-padding: 9;"/>
+                <Button text="✚ Créer le Compte" onAction="#onCreerCompte"
+                        style="-fx-background-color: #1B5E20; -fx-text-fill: white;
+                               -fx-background-radius: 8; -fx-padding: 10 16;
+                               -fx-cursor: hand; -fx-pref-width: 200;"/>
+                <Label fx:id="lblMessageCompte" style="-fx-font-size: 12;"/>
+            </VBox>
+
+            <!-- Dépôt / Retrait -->
+            <VBox spacing="12" HBox.hgrow="ALWAYS"
+                  style="-fx-background-color: rgba(255,255,255,0.90);
+                         -fx-background-radius: 12; -fx-padding: 20;">
+                <Label text="Dépôt / Retrait"
+                       style="-fx-font-size: 14; -fx-font-weight: bold;
+                              -fx-text-fill: #1B5E20;"/>
+                <TextField fx:id="txtIdCompteOperation"
+                           promptText="ID du compte"
+                           style="-fx-background-radius: 8; -fx-padding: 9;"/>
+                <TextField fx:id="txtMontantOperation"
+                           promptText="Montant (MRU)"
+                           style="-fx-background-radius: 8; -fx-padding: 9;"/>
+                <HBox spacing="10">
+                    <Button text="⬆ Enregistrer Dépôt" onAction="#onDeposer"
+                            style="-fx-background-color: #2E7D32; -fx-text-fill: white;
+                                   -fx-background-radius: 8; -fx-padding: 10 14;
+                                   -fx-cursor: hand;"/>
+                    <Button text="⬇ Enregistrer Retrait" onAction="#onRetirer"
+                            style="-fx-background-color: #C62828; -fx-text-fill: white;
+                                   -fx-background-radius: 8; -fx-padding: 10 14;
+                                   -fx-cursor: hand;"/>
+                </HBox>
+                <Label fx:id="lblMessageOperation" style="-fx-font-size: 12;"/>
+            </VBox>
+        </HBox>
+
+        <!-- Table comptes -->
+        <VBox VBox.vgrow="ALWAYS"
+              style="-fx-background-color: rgba(255,255,255,0.90);
+                     -fx-background-radius: 12; -fx-padding: 16;">
+            <HBox alignment="CENTER_LEFT" spacing="10"
+                  style="-fx-padding: 0 0 10 0;">
+                <Label text="Rechercher par ID Client :"
+                       style="-fx-font-size: 13;"/>
+                <TextField fx:id="txtRechercheClient"
+                           promptText="ID client" prefWidth="120"
+                           style="-fx-background-radius: 8; -fx-padding: 8;"/>
+                <Button text="🔍 Rechercher" onAction="#onRechercherComptes"
+                        style="-fx-background-color: #1B5E20; -fx-text-fill: white;
+                               -fx-background-radius: 8; -fx-padding: 8 14;
+                               -fx-cursor: hand;"/>
+            </HBox>
+            <TableView fx:id="tableComptes" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colIdCompte"     text="ID Compte"    prefWidth="90"/>
+                    <TableColumn fx:id="colSolde"        text="Solde (MRU)"  prefWidth="130"/>
+                    <TableColumn fx:id="colDateCreation" text="Date création" prefWidth="150"/>
+                    <TableColumn fx:id="colStatutCompte" text="Statut"       prefWidth="110"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </VBox>
+</StackPane>

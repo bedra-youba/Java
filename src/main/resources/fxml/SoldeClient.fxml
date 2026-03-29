@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.microfinance.views.SoldeClientViewController">
+
+    <ImageView fitWidth="1200" fitHeight="800"
+               preserveRatio="false" opacity="0.35">
+        <image><Image url="@../images/billets.jpeg"/></image>
+    </ImageView>
+
+    <VBox spacing="16" style="-fx-padding: 25;">
+        <HBox alignment="CENTER_LEFT" spacing="15">
+            <Button text="⬅  Retour" onAction="#retourDashboard"
+                    style="-fx-background-color: rgba(27,94,32,0.8); -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 8 16; -fx-cursor: hand;"/>
+            <VBox HBox.hgrow="ALWAYS"
+                  style="-fx-background-color: rgba(27,94,32,0.65); -fx-background-radius: 12; -fx-padding: 15;">
+                <Label text="💰  Mon Solde Épargne"
+                       style="-fx-text-fill: white; -fx-font-size: 20; -fx-font-weight: bold;"/>
+                <Label text="Consulter le solde de vos comptes épargne"
+                       style="-fx-text-fill: #A5D6A7; -fx-font-size: 12;"/>
+            </VBox>
+            <ImageView fitWidth="80" fitHeight="53" preserveRatio="true">
+                <image><Image url="@../images/drapeau.jpg"/></image>
+            </ImageView>
+        </HBox>
+
+        <!-- Solde total -->
+        <VBox alignment="CENTER" prefHeight="120"
+              style="-fx-background-color: rgba(255,255,255,0.90); -fx-background-radius: 12; -fx-padding: 25;">
+            <Label text="Solde total disponible"
+                   style="-fx-font-size: 14; -fx-text-fill: #555;"/>
+            <Label fx:id="lblSoldeAffiche" text="— MRU"
+                   style="-fx-font-size: 36; -fx-font-weight: bold; -fx-text-fill: #1B5E20;"/>
+            <Label fx:id="lblMessageSolde" style="-fx-font-size: 12;"/>
+        </VBox>
+
+        <!-- Mes comptes -->
+        <VBox VBox.vgrow="ALWAYS"
+              style="-fx-background-color: rgba(255,255,255,0.90); -fx-background-radius: 12; -fx-padding: 16;">
+            <Label text="Mes Comptes Épargne"
+                   style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #1B5E20; -fx-padding: 0 0 10 0;"/>
+            <TableView fx:id="tableComptes" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colIdCompte"     text="ID Compte"    prefWidth="100"/>
+                    <TableColumn fx:id="colSolde"        text="Solde (MRU)"  prefWidth="150"/>
+                    <TableColumn fx:id="colDateCreation" text="Date création" prefWidth="160"/>
+                    <TableColumn fx:id="colStatut"       text="Statut"       prefWidth="120"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </VBox>
+</StackPane>

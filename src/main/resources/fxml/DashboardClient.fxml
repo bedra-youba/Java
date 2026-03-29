@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.microfinance.views.DashboardClientViewController">
+
+    <ImageView fitWidth="1200" fitHeight="800"
+               preserveRatio="false" opacity="0.35">
+        <image><Image url="@../images/billets.jpeg"/></image>
+    </ImageView>
+
+    <HBox>
+        <!-- Sidebar -->
+        <VBox spacing="0"
+              style="-fx-background-color: rgba(27,94,32,0.75); -fx-min-width: 220; -fx-pref-width: 220;">
+            <padding><Insets top="20" bottom="20"/></padding>
+
+            <VBox alignment="CENTER" spacing="6" style="-fx-padding: 0 10 20 10;">
+                <ImageView fitWidth="70" fitHeight="47" preserveRatio="true">
+                    <image><Image url="@../images/drapeau.jpg"/></image>
+                </ImageView>
+                <Label text="MicroFinance"
+                       style="-fx-text-fill: white; -fx-font-size: 16; -fx-font-weight: bold;"/>
+                <Label text="Espace Client"
+                       style="-fx-text-fill: #A5D6A7; -fx-font-size: 13;"/>
+            </VBox>
+
+            <Separator style="-fx-background-color: rgba(255,255,255,0.3);"/>
+
+            <VBox spacing="4" style="-fx-padding: 15 10 0 10;">
+                <Button text="🏠  Accueil"
+                        style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-alignment: CENTER-LEFT; -fx-pref-width: 195; -fx-padding: 10 15; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-size: 13;"/>
+                <Button text="💰  Mon Solde" onAction="#ouvrirSolde"
+                        style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER-LEFT; -fx-pref-width: 195; -fx-padding: 10 15; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-size: 13;"/>
+                <Button text="📋  Mon Historique" onAction="#ouvrirHistorique"
+                        style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER-LEFT; -fx-pref-width: 195; -fx-padding: 10 15; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-size: 13;"/>
+                <Button text="🛒  Ma Demande Achat" onAction="#ouvrirDemande"
+                        style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER-LEFT; -fx-pref-width: 195; -fx-padding: 10 15; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-size: 13;"/>
+            </VBox>
+
+            <VBox VBox.vgrow="ALWAYS" alignment="BOTTOM_CENTER" style="-fx-padding: 0 10 10 10;">
+                <Button text="⬅  Déconnexion" onAction="#onDeconnexion"
+                        style="-fx-background-color: transparent; -fx-text-fill: #EF9A9A; -fx-alignment: CENTER-LEFT; -fx-pref-width: 195; -fx-padding: 10 15; -fx-background-radius: 8; -fx-cursor: hand; -fx-font-size: 13;"/>
+            </VBox>
+        </VBox>
+
+        <!-- Contenu -->
+        <VBox spacing="20" HBox.hgrow="ALWAYS">
+            <padding><Insets top="20" right="25" bottom="20" left="25"/></padding>
+
+            <!-- En-tête -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <VBox HBox.hgrow="ALWAYS"
+                      style="-fx-background-color: rgba(27,94,32,0.65); -fx-background-radius: 12; -fx-padding: 18;">
+                    <Label fx:id="lblBienvenue" text="Bienvenue 👋"
+                           style="-fx-text-fill: #A5D6A7; -fx-font-size: 13;"/>
+                    <Label fx:id="lblNomClient" text="—"
+                           style="-fx-text-fill: white; -fx-font-size: 22; -fx-font-weight: bold;"/>
+                    <Label text="Consulter votre compte et faire vos demandes"
+                           style="-fx-text-fill: #C8E6C9; -fx-font-size: 12;"/>
+                </VBox>
+                <VBox alignment="CENTER" spacing="6"
+                      style="-fx-background-color: rgba(27,94,32,0.65); -fx-background-radius: 12; -fx-padding: 18;">
+                    <ImageView fitWidth="90" fitHeight="60" preserveRatio="true">
+                        <image><Image url="@../images/drapeau.jpg"/></image>
+                    </ImageView>
+                    <Label text="Mauritanie" style="-fx-text-fill: white; -fx-font-size: 12;"/>
+                </VBox>
+            </HBox>
+
+            <!-- Cartes -->
+            <HBox spacing="16">
+                <VBox style="-fx-background-color: rgba(255,255,255,0.82); -fx-background-radius: 12; -fx-padding: 18; -fx-border-color: #2E7D32; -fx-border-width: 0 0 0 5; -fx-border-radius: 12; -fx-cursor: hand;"
+                      HBox.hgrow="ALWAYS" onMouseClicked="#ouvrirSolde">
+                    <Label text="💰  Mon Solde Épargne"
+                           style="-fx-font-size: 12; -fx-text-fill: #555;"/>
+                    <Label fx:id="lblSolde" text="— MRU"
+                           style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: #1B5E20;"/>
+                    <Label text="Cliquer pour voir le détail"
+                           style="-fx-font-size: 10; -fx-text-fill: #888;"/>
+                </VBox>
+
+                <VBox style="-fx-background-color: rgba(255,255,255,0.82); -fx-background-radius: 12; -fx-padding: 18; -fx-border-color: #2E7D32; -fx-border-width: 0 0 0 5; -fx-border-radius: 12; -fx-cursor: hand;"
+                      HBox.hgrow="ALWAYS" onMouseClicked="#ouvrirHistorique">
+                    <Label text="📋  Mes Comptes"
+                           style="-fx-font-size: 12; -fx-text-fill: #555;"/>
+                    <Label fx:id="lblNombreComptes" text="0"
+                           style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: #1B5E20;"/>
+                    <Label text="Cliquer pour voir l'historique"
+                           style="-fx-font-size: 10; -fx-text-fill: #888;"/>
+                </VBox>
+
+                <VBox style="-fx-background-color: rgba(255,255,255,0.82); -fx-background-radius: 12; -fx-padding: 18; -fx-border-color: #2E7D32; -fx-border-width: 0 0 0 5; -fx-border-radius: 12; -fx-cursor: hand;"
+                      HBox.hgrow="ALWAYS" onMouseClicked="#ouvrirDemande">
+                    <Label text="🛒  Mes Demandes"
+                           style="-fx-font-size: 12; -fx-text-fill: #555;"/>
+                    <Label fx:id="lblNombreDemandes" text="0"
+                           style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: #1B5E20;"/>
+                    <Label text="Cliquer pour faire une demande"
+                           style="-fx-font-size: 10; -fx-text-fill: #888;"/>
+                </VBox>
+            </HBox>
+
+            <!-- Actions rapides -->
+            <VBox spacing="12"
+                  style="-fx-background-color: rgba(255,255,255,0.82); -fx-background-radius: 12; -fx-padding: 20;">
+                <Label text="Actions rapides"
+                       style="-fx-font-size: 15; -fx-font-weight: bold; -fx-text-fill: #1B5E20;"/>
+                <HBox spacing="12">
+                    <Button text="💰  Mon Solde" onAction="#ouvrirSolde"
+                            style="-fx-background-color: #1B5E20; -fx-text-fill: white; -fx-background-radius: 10; -fx-padding: 12 20; -fx-cursor: hand; -fx-font-size: 13;"/>
+                    <Button text="📋  Mon Historique" onAction="#ouvrirHistorique"
+                            style="-fx-background-color: #2E7D32; -fx-text-fill: white; -fx-background-radius: 10; -fx-padding: 12 20; -fx-cursor: hand; -fx-font-size: 13;"/>
+                    <Button text="🛒  Faire une Demande" onAction="#ouvrirDemande"
+                            style="-fx-background-color: #388E3C; -fx-text-fill: white; -fx-background-radius: 10; -fx-padding: 12 20; -fx-cursor: hand; -fx-font-size: 13;"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </HBox>
+</StackPane>
